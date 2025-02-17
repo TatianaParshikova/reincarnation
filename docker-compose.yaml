@@ -6,8 +6,8 @@ services:
     container_name: postgres_container
     environment:
       POSTGRES_USER: postgres_user
-      POSTGRES_PASSWORD: G7x#pW!m29bV@qY
-      POSTGRES_DB: reincarnation_db
+      POSTGRES_PASSWORD: postgres_password
+      POSTGRES_DB: postgres_db
       PGDATA: /var/lib/postgresql/data/pgdata
     ports:
       - "5430:5432"
