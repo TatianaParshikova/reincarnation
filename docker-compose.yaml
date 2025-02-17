@@ -6,8 +6,8 @@ services:
     container_name: postgres_container
     environment:
       POSTGRES_USER: postgres_user
-      POSTGRES_PASSWORD: postgres_password
-      POSTGRES_DB: postgres_db
+      POSTGRES_PASSWORD: unstoppable
+      POSTGRES_DB: reincarnation_db
       PGDATA: /var/lib/postgresql/data/pgdata
     ports:
       - "5430:5432"
@@ -30,7 +30,7 @@ services:
                -c wal_buffers=16MB
                -c default_statistics_target=100
     healthcheck:
-      test: [ "CMD-SHELL", "pg_isready -U postgres_user -d postgres_db" ]
+      test: [ "CMD-SHELL", "pg_isready -U postgres_user -d reincarnation_db" ]
       interval: 30s
       timeout: 10s
       retries: 5
