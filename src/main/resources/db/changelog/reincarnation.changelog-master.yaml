@@ -1,0 +1,10 @@
+databaseChangeLog:
+  - include:
+      file: classpath:db/changelog/domain-synchronizer.changelog-master.yaml
+
+  - changeSet:
+      id: 1
+      author: Sergei Tsvetkov
+      changes:
+        - sqlFile:
+            path: classpath:db/changelog/migration/1__init.sql
