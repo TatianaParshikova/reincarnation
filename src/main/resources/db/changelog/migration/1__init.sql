@@ -1,10 +1,18 @@
-
-
-create table if not exists domain_pools
-(
-    id                 int generated always as identity primary key,
-    tenant_id          bigint      not null,
-    product            varchar(24) not null,
-    ma_domain_category int         not null
+CREATE TABLE  IF NOT EXISTS partners (
+    id INT NOT NULL,
+    hash VARCHAR(32) UNIQUE NOT NULL
 );
 
+CREATE TABLE  IF NOT EXISTS players (
+    id INT NOT NULL,
+    hash VARCHAR(32) REFERENCES partners(hash) NOT NULL,
+    suds JSONB
+);
+
+CREATE TABLE  IF NOT EXISTS events (
+    id INT PRIMARY KEY,
+    previous_hash VARCHAR(32) REFERENCES partners(hash) NOT NULL,
+    previous_subs JSONB,
+    event_time TIMESTAMP WITH TIME ZONE NOT NULL,
+    is_activations BOOLEAN NOT NULL
+);

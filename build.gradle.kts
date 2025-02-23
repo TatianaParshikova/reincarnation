@@ -23,3 +23,18 @@ dependencies {
 tasks.test {
     useJUnitPlatform()
 }
+
+liquibase {
+    activities {
+        register("main") {
+            this.arguments = mapOf(
+                "changelogFile" to "resources/db/changelog/reincarnation.changelog.yaml",
+                "url" to "jdbc:postgresql://localhost:5430/reincarnation_db",
+                "username" to "postgres_user",
+                "password" to "unstoppable"
+            )
+        }
+    }
+}
+
+

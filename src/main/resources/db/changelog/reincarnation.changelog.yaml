@@ -4,7 +4,7 @@ databaseChangeLog:
 
   - changeSet:
       id: 1
-      author: Sergei Tsvetkov
+      author: Tatiana Shamrikova
       changes:
         - sqlFile:
             path: classpath:db/changelog/migration/1__init.sql
